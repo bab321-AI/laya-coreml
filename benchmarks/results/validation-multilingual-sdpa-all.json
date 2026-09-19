@@ -1,0 +1,255 @@
+{
+  "environment": {
+    "created_at": "2026-09-19T23:21:39.366826+00:00",
+    "chip": "Apple M3 Max",
+    "memory_bytes": 137438953472,
+    "os": "macOS-27.2-arm64-arm-64bit",
+    "python": "3.12.13",
+    "packages": {
+      "coremltools": "9.0",
+      "numpy": "2.1.3",
+      "torch": "2.7.0",
+      "tokenizers": "0.23.2",
+      "mlx": "0.32.2",
+      "laya-mlx": "0.1.0"
+    },
+    "source_sha256": "6dd8368ea1933ea4ac1067e1ae898393a04b85f1d5035dea3486e0e906f3aff4"
+  },
+  "model": "laya-multilingual",
+  "export": {
+    "format": "laya-coreml",
+    "format_version": 1,
+    "source": "../laya-mlx/models/laya-multilingual",
+    "revision": "052592a15d198d9ad47da779604259b10b47b7aa",
+    "source_weights_sha256": "9d628fd971b700382ac6f65920a86f149777b2e748e0c955fb3b19695aa8f204",
+    "precision": "float16",
+    "minimum_deployment_target": "macOS15 / iOS18",
+    "shape": {
+      "batch_size": 1,
+      "max_length": 1024,
+      "min_length": 16,
+      "default_length": 128,
+      "max_options": 32,
+      "flexible": true
+    },
+    "versions": {
+      "coremltools": "9.0",
+      "torch": "2.7.0",
+      "numpy": "2.1.3"
+    },
+    "conversion_seconds": 12.840990665994468,
+    "files": {
+      "encoder/config.json": {
+        "bytes": 1938,
+        "sha256": "83f6916d13ef0f556ac461f28308dc2bffa7ebeadee8ec9e2db5812020ea5bb4"
+      },
+      "model.mlpackage/Data/com.apple.CoreML/model.mlmodel": {
+        "bytes": 1537294,
+        "sha256": "e3c4c0639d4cb4a1aa1ac5f90b200448db4805f19c922fae0eac36c8a041aa7d"
+      },
+      "model.mlpackage/Data/com.apple.CoreML/weights/weight.bin": {
+        "bytes": 643966208,
+        "sha256": "6b906ab7b6b8bbc0f11608425f6091b508bbe968788f27d8e81df25399c281ba"
+      },
+      "model.mlpackage/Manifest.json": {
+        "bytes": 617,
+        "sha256": "05ace9c96d178036ad26ef2a4ddf199dcfceeb3d838da47efadc39fa283b3734"
+      },
+      "rl_agent_config.json": {
+        "bytes": 472,
+        "sha256": "25061739243b617ad88d1219ba6f8a9c86c5881ca28df024fa2d9b3b2fcc30c6"
+      },
+      "tokenizer/tokenizer.json": {
+        "bytes": 34363188,
+        "sha256": "609d8f4c067cd3950f88594c5a802616cea245823836ef5848ee4fc40aab5b6f"
+      },
+      "tokenizer/tokenizer_config.json": {
+        "bytes": 524,
+        "sha256": "6c6b2d8e3c84ce0e671c129cd6b374b235d6f9863042a5836358d00a89bbb5a1"
+      }
+    }
+  },
+  "reference_sha256": "27642bf5f16e1881514a65f91d2ba986fce786b832e60ed1a35fa44d1bfdd682",
+  "compute_units": "all",
+  "load_seconds": 5.912651416001609,
+  "cases": [
+    {
+      "name": "email",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.00020285498182523454,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.002751588821411133,
+      "public_result_equal": false
+    },
+    {
+      "name": "en",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.00021254496034533998,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.0049037933349609375,
+      "public_result_equal": false
+    },
+    {
+      "name": "zh",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.00011488511660506795,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.02995586395263672,
+      "public_result_equal": false
+    },
+    {
+      "name": "de",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.00017144067803734342,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.006915092468261719,
+      "public_result_equal": false
+    },
+    {
+      "name": "fr",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.00017464094114970352,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.0071392059326171875,
+      "public_result_equal": false
+    },
+    {
+      "name": "es",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.00016573236334307268,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.006934404373168945,
+      "public_result_equal": false
+    },
+    {
+      "name": "hi",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.0005274841392268748,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.0041637420654296875,
+      "public_result_equal": false
+    },
+    {
+      "name": "ja",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.00018218256570914915,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.006391048431396484,
+      "public_result_equal": false
+    },
+    {
+      "name": "ru",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.00025085009097192135,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.0019860267639160156,
+      "public_result_equal": false
+    },
+    {
+      "name": "empty_state",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.0002083734174911367,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.007335186004638672,
+      "public_result_equal": false
+    },
+    {
+      "name": "long",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.0001632179955182167,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.002007007598876953,
+      "public_result_equal": false
+    },
+    {
+      "name": "conversation",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.0001643277490378514,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.0042514801025390625,
+      "public_result_equal": false
+    },
+    {
+      "name": "mask_literals",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.0005137763855931343,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.0018970966339111328,
+      "public_result_equal": false
+    },
+    {
+      "name": "many_questions",
+      "questions": 20,
+      "tokens_equal": true,
+      "argmax_agreements": 20,
+      "probability_max_abs_error": 0.0002029403047191236,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.002752065658569336,
+      "public_result_equal": false
+    },
+    {
+      "name": "structured",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.0003227423986446043,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.005714893341064453,
+      "public_result_equal": false
+    },
+    {
+      "name": "twenty_options",
+      "questions": 1,
+      "tokens_equal": true,
+      "argmax_agreements": 1,
+      "probability_max_abs_error": 1.7056221512189553e-06,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.004744768142700195,
+      "public_result_equal": false
+    }
+  ],
+  "questions": 63,
+  "argmax_agreements": 63,
+  "probability_max_abs_error": 0.0005274841392268748,
+  "action_probability_max_abs_error": 0.0,
+  "probability_tolerance": 0.02,
+  "passed": true,
+  "stability": {
+    "calls": 10,
+    "seconds": 2.792407832996105,
+    "rounded_public_results_identical": true,
+    "rss_before": 3239198720,
+    "rss_after": 3229908992,
+    "rss_samples": [
+      3239198720,
+      3229908992
+    ],
+    "memory_note": "Process RSS includes Core ML/framework caches; not an active-tensor allocator measurement"
+  }
+}

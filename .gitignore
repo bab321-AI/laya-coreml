@@ -1,0 +1,16 @@
+.venv/
+.upstream/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+models/
+artifacts/
+*.mlpackage/
+*.mlmodelc/
+*.safetensors
+*.pt
+*.log
+dist/
+build/
+.DS_Store
+.env

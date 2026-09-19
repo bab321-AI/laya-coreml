@@ -1,0 +1,83 @@
+{
+  "installed_module": "/tmp/laya-coreml-runtime-check/lib/python3.12/site-packages/laya_coreml/__init__.py",
+  "version": "0.1.0",
+  "compute_units": "cpu_gpu",
+  "torch_transformers_mlx_installed": false,
+  "python_socket_connect_attempts": [],
+  "note": "English bare-label prompt is misclassified as sales by both upstream-compatible MLX FP32 and Core ML; this checks port behavior, not ground-truth accuracy. Max displayed probability drift for this extra prompt is 0.0182.",
+  "results": [
+    {
+      "state": "I was billed twice. Please refund the duplicate.",
+      "mlx_fp32_selected_label": "sales",
+      "result": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "confidence": 0.3441,
+            "action": {
+              "act_probability": 1.0
+            },
+            "choice": "sales",
+            "probabilities": {
+              "billing": 0.4376,
+              "technical": 0.0064,
+              "sales": 0.5559
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 28,
+          "output_tokens": 0
+        }
+      }
+    },
+    {
+      "state": "发票被重复扣款，请退还多扣的钱。",
+      "mlx_fp32_selected_label": "billing",
+      "result": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "department": {
+            "type": "choice",
+            "confidence": 0.6696,
+            "action": {
+              "act_probability": 1.0
+            },
+            "choice": "billing",
+            "probabilities": {
+              "billing": 0.9101,
+              "technical": 0.0536,
+              "sales": 0.0363
+            }
+          }
+        },
+        "usage": {
+          "input_tokens": 33,
+          "output_tokens": 0
+        }
+      }
+    }
+  ],
+  "minimal_prompt": {
+    "model": "laya-rl-agent",
+    "answers": {
+      "q": {
+        "type": "choice",
+        "confidence": 0.0952,
+        "action": {
+          "act_probability": 1.0
+        },
+        "choice": "a",
+        "probabilities": {
+          "a": 0.6796,
+          "b": 0.3204
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 12,
+      "output_tokens": 0
+    }
+  }
+}

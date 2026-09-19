@@ -1,0 +1,277 @@
+{
+  "environment": {
+    "created_at": "2026-09-19T23:26:08.875911+00:00",
+    "chip": "Apple M3 Max",
+    "memory_bytes": 137438953472,
+    "os": "macOS-27.2-arm64-arm-64bit",
+    "python": "3.12.13",
+    "packages": {
+      "coremltools": "9.0",
+      "numpy": "2.1.3",
+      "torch": "2.7.0",
+      "tokenizers": "0.23.2",
+      "mlx": "0.32.2",
+      "laya-mlx": "0.1.0"
+    },
+    "source_sha256": "9e7318b375e043f28c34f1342b1fd537185b402dd05a7c2ab1582ff77972f263"
+  },
+  "model": "laya",
+  "export": {
+    "format": "laya-coreml",
+    "format_version": 1,
+    "source": "../laya-mlx/models/laya",
+    "revision": "c5d78730f3493e4fe16d61507ef4b78eef7318cf",
+    "source_weights_sha256": "891102d372688fc2a094dac56a384bc537b87c63f21f9f3dac0be2b7cbc8d86c",
+    "precision": "float16",
+    "attention": "sdpa",
+    "minimum_deployment_target": "macOS15 / iOS18",
+    "shape": {
+      "batch_size": 1,
+      "max_length": 512,
+      "min_length": 16,
+      "default_length": 128,
+      "max_options": 32,
+      "flexible": true,
+      "mode": "enumerated",
+      "lengths": [
+        16,
+        32,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ]
+    },
+    "versions": {
+      "coremltools": "9.0",
+      "torch": "2.7.0",
+      "numpy": "2.1.3"
+    },
+    "conversion_seconds": 14.04100795800332,
+    "files": {
+      "encoder/config.json": {
+        "bytes": 2083,
+        "sha256": "bf3ab80598fdccf414855a2ce80f22859e4492d06ca8a62ddd1cfb63972f8979"
+      },
+      "model.mlpackage/Data/com.apple.CoreML/model.mlmodel": {
+        "bytes": 872598,
+        "sha256": "dc6a6383ad4a2f04f7525924b0dfb830429dedc44387f143a2f87782e39aeab0"
+      },
+      "model.mlpackage/Data/com.apple.CoreML/weights/weight.bin": {
+        "bytes": 842750912,
+        "sha256": "5872b9f6530c20a845b69c0cb75aa141e9c89ffdd5f36529c3708cec9b7a7a83"
+      },
+      "model.mlpackage/Manifest.json": {
+        "bytes": 617,
+        "sha256": "41bab6e532f727e8809c76906f41026a48ef9b276c56068b3d68270a13981e20"
+      },
+      "rl_agent_config.json": {
+        "bytes": 745,
+        "sha256": "ae287b56bbcf5f8c4f4541ae9dfd00c914c4c48b940b8398c3058af37ba92bbd"
+      },
+      "tokenizer/tokenizer.json": {
+        "bytes": 3583228,
+        "sha256": "6c8aaa9a542084f2457eab775d4eeb51f92a70c0fd9de28d5edb0ddec3c08d30"
+      },
+      "tokenizer/tokenizer_config.json": {
+        "bytes": 308,
+        "sha256": "50044de60daaa73df97d262e15a40d4faf0160e7d742df64b377877a1320dd12"
+      }
+    }
+  },
+  "reference_sha256": "27642bf5f16e1881514a65f91d2ba986fce786b832e60ed1a35fa44d1bfdd682",
+  "compute_units": "cpu_gpu",
+  "load_seconds": 3.5243198750031297,
+  "cases": [
+    {
+      "name": "email",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.00036248411817829673,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.011515617370605469,
+      "public_result_equal": false
+    },
+    {
+      "name": "en",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.0005794522064193064,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.0030579566955566406,
+      "public_result_equal": false
+    },
+    {
+      "name": "zh",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.0033076258324740704,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.020889997482299805,
+      "public_result_equal": false
+    },
+    {
+      "name": "de",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.0014419040982275866,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.025826990604400635,
+      "public_result_equal": false
+    },
+    {
+      "name": "fr",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.0019683208807920183,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.011814594268798828,
+      "public_result_equal": false
+    },
+    {
+      "name": "es",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.003062455574691314,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.01711207628250122,
+      "public_result_equal": false
+    },
+    {
+      "name": "hi",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.0022815510838266606,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.01277017593383789,
+      "public_result_equal": false
+    },
+    {
+      "name": "ja",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.0012594393266427695,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.011377334594726562,
+      "public_result_equal": false
+    },
+    {
+      "name": "ru",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.0010868776635046817,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.009341925382614136,
+      "public_result_equal": false
+    },
+    {
+      "name": "empty_state",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.000519360980224759,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.0066835880279541016,
+      "public_result_equal": false
+    },
+    {
+      "name": "long",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.0003138214746256085,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.0040740966796875,
+      "public_result_equal": false
+    },
+    {
+      "name": "conversation",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.0001506211279515418,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.004204750061035156,
+      "public_result_equal": false
+    },
+    {
+      "name": "mask_literals",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.00043326147227729095,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.0048542022705078125,
+      "public_result_equal": false
+    },
+    {
+      "name": "many_questions",
+      "questions": 20,
+      "tokens_equal": true,
+      "argmax_agreements": 20,
+      "probability_max_abs_error": 0.00036248590012000204,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.011516094207763672,
+      "public_result_equal": false
+    },
+    {
+      "name": "structured",
+      "questions": 3,
+      "tokens_equal": true,
+      "argmax_agreements": 3,
+      "probability_max_abs_error": 0.0006351234277632567,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.008380889892578125,
+      "public_result_equal": false
+    },
+    {
+      "name": "twenty_options",
+      "questions": 1,
+      "tokens_equal": true,
+      "argmax_agreements": 1,
+      "probability_max_abs_error": 1.520820862650508e-31,
+      "action_probability_max_abs_error": 0.0,
+      "logits_max_abs_error": 0.007397174835205078,
+      "public_result_equal": true
+    }
+  ],
+  "questions": 63,
+  "argmax_agreements": 63,
+  "probability_max_abs_error": 0.0033076258324740704,
+  "action_probability_max_abs_error": 0.0,
+  "probability_tolerance": 0.02,
+  "passed": true,
+  "stability": {
+    "calls": 100,
+    "seconds": 53.08513954099908,
+    "rounded_public_results_identical": true,
+    "rss_before": 1427898368,
+    "rss_after": 1303429120,
+    "rss_samples": [
+      1427898368,
+      1301479424,
+      1301872640,
+      1302872064,
+      1302855680,
+      1302888448,
+      1302970368,
+      1303183360,
+      1303756800,
+      1303494656,
+      1303429120
+    ],
+    "memory_note": "Process RSS includes Core ML/framework caches; not an active-tensor allocator measurement"
+  }
+}
