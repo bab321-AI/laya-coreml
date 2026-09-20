@@ -1,0 +1,44 @@
+{
+  "version": "0.1.0",
+  "installation": "Fresh venv; uv pip install --no-cache --index-url https://pypi.org/simple laya-coreml[demo]==0.1.0",
+  "python": "3.12.13",
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "without_dependencies": {
+    "torch": true,
+    "mlx": true,
+    "transformers": true
+  },
+  "repository": "aac6fef/laya-multilingual-coreml-ane",
+  "hub_revision": "39d6a9b3d0f67f06da74fbade6121ea134cbdb21",
+  "compute_units": "cpu_ne",
+  "input": {
+    "state": "The customer requests a refund of a duplicate payment.",
+    "questions": {
+      "refund": {
+        "type": "noul",
+        "instructions": "Does the customer request a refund?"
+      }
+    }
+  },
+  "result": {
+    "model": "laya-rl-agent",
+    "answers": {
+      "refund": {
+        "type": "noul",
+        "confidence": 0.9747,
+        "action": {
+          "act_probability": 1.0
+        },
+        "noul": 0.9747
+      }
+    },
+    "usage": {
+      "input_tokens": 43,
+      "output_tokens": 0
+    }
+  },
+  "stable_repeat_calls": 3,
+  "network_attempts_during_predict": 0,
+  "downloaded_distribution_hashes_match": true,
+  "passed": true
+}

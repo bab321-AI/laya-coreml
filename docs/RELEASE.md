@@ -83,6 +83,16 @@ connections blocked. No offline section attempted a connection. This check also
 exercised the Core ML symlink materialization fix described in
 [USAGE.md](USAGE.md). Results: [wheel-runtime-smoke.json](../benchmarks/results/wheel-runtime-smoke.json).
 
+Version **0.1.0 was published to PyPI on 2026-09-20**. Both public distribution
+files were downloaded and their SHA256 digests matched the local release
+artifacts. A second new environment then installed `laya-coreml[demo]==0.1.0`
+directly from the public PyPI index with caching disabled. The README's direct
+Hub-loading example ran successfully, returned zero output tokens, and produced
+the same answer on three repeat calls with network connections blocked during
+prediction. Both installed CLI entry points also started successfully.
+See [publication receipt](../benchmarks/results/pypi-release.json) and
+[public-install inference check](../benchmarks/results/pypi-install-smoke.json).
+
 ## Reproduce the release checks
 
 The local release gate passed **64 tests**, Ruff lint/format checks, and strict

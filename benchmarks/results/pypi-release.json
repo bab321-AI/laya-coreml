@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "core_metadata_version": "2.4",
+  "artifacts": [
+    {
+      "filename": "laya_coreml-0.1.0-py3-none-any.whl",
+      "bytes": 48843,
+      "sha256": "2c33b224b25d2cadeb8da2945915083b5364b5c171828337a31c66061e996a1a",
+      "url": "https://files.pythonhosted.org/packages/c6/a2/34a160803300bde5e6ecbbb1e60cf28c59b98b85848481ee5dccec620a22/laya_coreml-0.1.0-py3-none-any.whl",
+      "uploaded_at": "2026-09-20T03:49:36.297071Z"
+    },
+    {
+      "filename": "laya_coreml-0.1.0.tar.gz",
+      "bytes": 38333,
+      "sha256": "29ffc89f5cf6a407e6853dfabe9790e36ce3cff4c98fc59f9bfa74f55fa1f58a",
+      "url": "https://files.pythonhosted.org/packages/7a/e4/cc5c2757d2d73a889ef9d4595092b99f1b14b01d3845d9396fd4de9250be/laya_coreml-0.1.0.tar.gz",
+      "uploaded_at": "2026-09-20T03:49:37.903146Z"
+    }
+  ],
+  "project_url": "https://pypi.org/project/laya-coreml/0.1.0/",
+  "pypi_hashes_verified": true
+}
