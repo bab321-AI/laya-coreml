@@ -2,10 +2,11 @@
 
 import json
 import math
-from pathlib import Path
 
 import numpy as np
 
+from .artifacts import package_for_coreml
+from .hub import DEFAULT_MODEL, resolve_checkpoint
 from .prompt import PromptMixin
 from .result import ResultMixin
 from .tokenizer import Tokenizer
@@ -14,10 +15,20 @@ COMPUTE_UNITS = {"all": "ALL", "cpu": "CPU_ONLY", "cpu_gpu": "CPU_AND_GPU", "cpu
 
 
 class Agent(PromptMixin, ResultMixin):
-    def __init__(self, model_dir, *, compute_units="cpu_gpu", allow_unvalidated_gpu=False):
+    def __init__(
+        self,
+        model_dir,
+        *,
+        compute_units="cpu_gpu",
+        allow_unvalidated_gpu=False,
+        revision=None,
+        local_files_only=False,
+    ):
         if compute_units not in COMPUTE_UNITS:
             raise ValueError(f"compute_units must be one of {list(COMPUTE_UNITS)}")
-        self.model_dir = Path(model_dir).expanduser()
+        self.model_dir = resolve_checkpoint(
+            model_dir, revision=revision, local_files_only=local_files_only
+        )
         self.manifest = json.loads((self.model_dir / "coreml_config.json").read_text())
         if self.manifest.get("format") != "laya-coreml" or self.manifest.get("format_version") != 1:
             raise ValueError("Unsupported Core ML export format")
@@ -48,7 +59,7 @@ class Agent(PromptMixin, ResultMixin):
 
         self.compute_units = compute_units
         self.model = ct.models.MLModel(
-            str(self.model_dir / "model.mlpackage"),
+            str(package_for_coreml(self.model_dir / "model.mlpackage")),
             compute_units=getattr(ct.ComputeUnit, COMPUTE_UNITS[compute_units]),
         )
 
@@ -59,5 +70,22 @@ class Agent(PromptMixin, ResultMixin):
         )
 
 
-def load(model_dir, **kwargs):
-    return Agent(model_dir, **kwargs)
+def load(
+    model_dir=DEFAULT_MODEL,
+    *,
+    revision=None,
+    local_files_only=False,
+    compute_units=None,
+    allow_unvalidated_gpu=False,
+):
+    directory = resolve_checkpoint(model_dir, revision=revision, local_files_only=local_files_only)
+    manifest = json.loads((directory / "coreml_config.json").read_text())
+    if manifest.get("format") == "laya-coreml-ane":
+        from .ane import ANEAgent
+
+        return ANEAgent(directory, compute_units=compute_units or "cpu_ne")
+    return Agent(
+        directory,
+        compute_units=compute_units or "cpu_gpu",
+        allow_unvalidated_gpu=allow_unvalidated_gpu,
+    )

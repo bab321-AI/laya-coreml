@@ -25,8 +25,14 @@ def main():
         "--questions", required=True, help="JSON file containing question definitions"
     )
     predict.add_argument(
-        "--compute-units", choices=["all", "cpu", "cpu_gpu", "cpu_ne"], default="cpu_gpu"
+        "--compute-units",
+        choices=["all", "cpu", "cpu_gpu", "cpu_ne"],
+        help="Default: cpu_ne for ANE bundles; cpu_gpu for ordinary exports",
     )
+    predict.add_argument(
+        "--offline", action="store_true", help="Use local files or cached Hub snapshots only"
+    )
+    predict.add_argument("--revision", help="Pinned Hugging Face commit or revision")
     args = parser.parse_args()
     if args.command == "convert":
         from .convert import convert
@@ -46,9 +52,14 @@ def main():
     else:
         from pathlib import Path
 
-        from .agent import Agent
+        from .agent import load
 
-        agent = Agent(args.model_dir, compute_units=args.compute_units)
+        agent = load(
+            args.model_dir,
+            compute_units=args.compute_units,
+            local_files_only=args.offline,
+            revision=args.revision,
+        )
         print(
             json.dumps(
                 agent.predict(args.state, json.loads(Path(args.questions).read_text())),

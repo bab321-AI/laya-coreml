@@ -1,0 +1,140 @@
+[
+  {
+    "repository": "aac6fef/laya-coreml",
+    "revision": "fff78b2d9750c6b748fe8c90fcbf8bed0a1522a9",
+    "private": false,
+    "package_sha256": "e697cb5b3cfe76738690afd1be1ce0673e5edf3d93cf8fe04dface306c8f575e",
+    "format": "laya-coreml",
+    "shape": {
+      "batch_size": 1,
+      "max_length": 512,
+      "min_length": 16,
+      "default_length": 128,
+      "max_options": 32,
+      "flexible": true,
+      "mode": "enumerated",
+      "lengths": [
+        16,
+        32,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ]
+    },
+    "bundle_bytes": 847232451
+  },
+  {
+    "repository": "aac6fef/laya-multilingual-coreml",
+    "revision": "8139e9089273319512c730218903784074133187",
+    "private": false,
+    "package_sha256": "64e84856a07620d2085f91ce9a0d1a48ccbe9dc824d1a34bed8c104bff1db383",
+    "format": "laya-coreml",
+    "shape": {
+      "batch_size": 1,
+      "max_length": 1024,
+      "min_length": 16,
+      "default_length": 128,
+      "max_options": 32,
+      "flexible": true,
+      "mode": "enumerated",
+      "lengths": [
+        16,
+        32,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512,
+        768,
+        1024
+      ]
+    },
+    "bundle_bytes": 679891646
+  },
+  {
+    "repository": "aac6fef/laya-multilingual-coreml-ane",
+    "revision": "39d6a9b3d0f67f06da74fbade6121ea134cbdb21",
+    "private": false,
+    "package_sha256": "53ba84d9b002997599dafc89cde611e6edac450572c63c4896e7b9f082b53651",
+    "format": "laya-coreml-ane",
+    "shape": {
+      "batch_size": 1,
+      "max_length": 96,
+      "min_length": 96,
+      "max_options": 32,
+      "flexible": false,
+      "lengths": null
+    },
+    "bundle_bytes": 679920639
+  },
+  {
+    "repository": "aac6fef/laya-multilingual-coreml-ane-w8",
+    "revision": "7503714810747a879b1e310074a9398bc573e739",
+    "private": false,
+    "package_sha256": "913229de164efd925637853f5e99d23bc91cc1799fab1dde1b910d7ed43d98c6",
+    "format": "laya-coreml-ane",
+    "shape": {
+      "batch_size": 1,
+      "max_length": 96,
+      "min_length": 96,
+      "max_options": 32,
+      "flexible": false,
+      "lengths": null
+    },
+    "bundle_bytes": 557295538
+  },
+  {
+    "repository": "aac6fef/laya-multilingual-coreml-snake",
+    "revision": "e580bca9c1a8f5e6084afedc49cba4a166dfc6f2",
+    "private": false,
+    "package_sha256": "85a738c18147a7485ea738b6238f43ab7d1740b58d8af37b83d8878f64ab563b",
+    "format": "laya-coreml",
+    "shape": {
+      "batch_size": 3,
+      "max_length": 64,
+      "min_length": 16,
+      "default_length": 64,
+      "max_options": 4,
+      "flexible": false,
+      "mode": "fixed",
+      "lengths": null
+    },
+    "bundle_bytes": 678535302
+  },
+  {
+    "repository": "aac6fef/laya-typed-decisions-coreml",
+    "revision": "28d24fa8d67a3264556b23391ec6c3fd98573056",
+    "private": false,
+    "package_sha256": "517a8071290a29c2f1e19b38356fdc5c59dfdc801711a92606de6bba67596c85",
+    "format": "laya-coreml",
+    "shape": {
+      "batch_size": 1,
+      "max_length": 1024,
+      "min_length": 16,
+      "default_length": 128,
+      "max_options": 32,
+      "flexible": true,
+      "mode": "enumerated",
+      "lengths": [
+        16,
+        32,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512,
+        768,
+        1024
+      ]
+    },
+    "bundle_bytes": 848150375
+  }
+]

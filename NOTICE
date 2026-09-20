@@ -6,13 +6,15 @@ https://github.com/NandhaKishorM/laya
 Copyright Convai Innovations and Laya contributors.
 Upstream source revision: 6a5819129eb220570792e417e49723d697efd76f
 
-Prompt construction, tokenization, result formatting, validation fixtures, and
-the ModernBERT architecture implementation are adapted from laya-mlx:
+Prompt construction, tokenization, result formatting, validation fixtures,
+the ModernBERT architecture implementation, and the Snake game, policy, terminal
+UI, recording/export and benchmark tools are adapted from laya-mlx:
 https://github.com/mizorewww/laya-mlx
 Copyright 2026 laya-mlx contributors. Licensed under Apache-2.0.
 Adapted revision: fc1df62828a3fedf4d8229fdac1cbd85f1cdf337
 Changes: Core ML runtime, export-only PyTorch graph, fixed/ranged shape input
-handling, and Core ML validation, device planning, and performance measurement.
+handling, Core ML validation, device planning, and performance measurement;
+ANE graph/runtime, portable model bundles and offline Core ML Snake integration.
 
 The model follows Laya's DecisionModel and Hugging Face Transformers ModernBERT.
 Original checkpoint weights belong to their respective upstream authors and

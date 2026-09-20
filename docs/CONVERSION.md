@@ -1,5 +1,9 @@
 # Conversion notes
 
+This page describes the ordinary Core ML export. The separately rewritten ANE
+graph and optional weight palettization are documented in
+[ANE_ENGINEERING.md](ANE_ENGINEERING.md).
+
 The export loads **original Laya checkpoints** into FP32 PyTorch modules, strictly
 checks all state-dict keys, traces an inference-only implementation, and saves a Core ML ML Program.
 The published checkpoint files themselves contain predominantly FP16 tensors;
@@ -77,6 +81,17 @@ runs on the Neural Engine. The benchmark records the Core ML compute plan's
 preferred/supported devices and estimated costs. This is an anticipated plan,
 not an Instruments runtime hardware trace, power measurement, or proof of
 exclusive Neural Engine execution.
+
+## Loading Hub snapshots
+
+The release smoke test found a separate packaging issue: loading a symbolic-link
+weight file from the shared Hugging Face cache caused Core ML's native compiler
+to report a missing `model.mlmodelc/weights/weight.bin`. All six equivalent local
+bundles loaded successfully. The runtime now copies symlink-backed packages to
+a content-addressed cache of regular files before constructing `MLModel`.
+Hashes are checked before and after copying and on reuse; a changed or damaged
+cache raises an error. Regular-file local bundles do not take this copy path.
+See [USAGE.md](USAGE.md) for the cache location and override.
 
 ## Reproducibility
 

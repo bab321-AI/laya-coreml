@@ -4,7 +4,7 @@ import argparse
 import json
 from pathlib import Path
 
-ROW_ARRAYS = {"operations", "power_samples", "events"}
+ROW_ARRAYS = {"operations", "power_samples", "events", "trace"}
 
 
 def render(value, level=0, rows=False):

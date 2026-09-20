@@ -1,0 +1,161 @@
+{
+  "installed_version": "0.1.0",
+  "module_path": "/tmp/laya-coreml-release-check/lib/python3.12/site-packages/laya_coreml/__init__.py",
+  "without_dependencies": {
+    "torch": true,
+    "mlx": true,
+    "transformers": true
+  },
+  "models": [
+    {
+      "repository": "aac6fef/laya-coreml",
+      "revision": "fff78b2d9750c6b748fe8c90fcbf8bed0a1522a9",
+      "compute_units": "cpu_gpu",
+      "result": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "refund": {
+            "type": "noul",
+            "confidence": 0.9115,
+            "action": {
+              "act_probability": 1.0
+            },
+            "noul": 0.9115
+          }
+        },
+        "usage": {
+          "input_tokens": 43,
+          "output_tokens": 0
+        }
+      },
+      "repeat_calls": 3,
+      "stable": true
+    },
+    {
+      "repository": "aac6fef/laya-multilingual-coreml",
+      "revision": "8139e9089273319512c730218903784074133187",
+      "compute_units": "cpu_gpu",
+      "result": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "refund": {
+            "type": "noul",
+            "confidence": 0.9751,
+            "action": {
+              "act_probability": 1.0
+            },
+            "noul": 0.9751
+          }
+        },
+        "usage": {
+          "input_tokens": 43,
+          "output_tokens": 0
+        }
+      },
+      "repeat_calls": 3,
+      "stable": true
+    },
+    {
+      "repository": "aac6fef/laya-multilingual-coreml-ane",
+      "revision": "39d6a9b3d0f67f06da74fbade6121ea134cbdb21",
+      "compute_units": "cpu_ne",
+      "result": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "refund": {
+            "type": "noul",
+            "confidence": 0.9747,
+            "action": {
+              "act_probability": 1.0
+            },
+            "noul": 0.9747
+          }
+        },
+        "usage": {
+          "input_tokens": 43,
+          "output_tokens": 0
+        }
+      },
+      "repeat_calls": 3,
+      "stable": true
+    },
+    {
+      "repository": "aac6fef/laya-multilingual-coreml-ane-w8",
+      "revision": "7503714810747a879b1e310074a9398bc573e739",
+      "compute_units": "cpu_ne",
+      "result": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "refund": {
+            "type": "noul",
+            "confidence": 0.9765,
+            "action": {
+              "act_probability": 1.0
+            },
+            "noul": 0.9765
+          }
+        },
+        "usage": {
+          "input_tokens": 43,
+          "output_tokens": 0
+        }
+      },
+      "repeat_calls": 3,
+      "stable": true
+    },
+    {
+      "repository": "aac6fef/laya-multilingual-coreml-snake",
+      "revision": "e580bca9c1a8f5e6084afedc49cba4a166dfc6f2",
+      "compute_units": "cpu_gpu",
+      "result": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "refund": {
+            "type": "noul",
+            "confidence": 0.9751,
+            "action": {
+              "act_probability": 1.0
+            },
+            "noul": 0.9751
+          }
+        },
+        "usage": {
+          "input_tokens": 43,
+          "output_tokens": 0
+        }
+      },
+      "repeat_calls": 3,
+      "stable": true
+    },
+    {
+      "repository": "aac6fef/laya-typed-decisions-coreml",
+      "revision": "28d24fa8d67a3264556b23391ec6c3fd98573056",
+      "compute_units": "cpu_gpu",
+      "result": {
+        "model": "laya-rl-agent",
+        "answers": {
+          "refund": {
+            "type": "noul",
+            "confidence": 0.6778,
+            "action": {
+              "act_probability": 1.0
+            },
+            "noul": 0.6778
+          }
+        },
+        "usage": {
+          "input_tokens": 43,
+          "output_tokens": 0
+        }
+      },
+      "repeat_calls": 3,
+      "stable": true
+    }
+  ],
+  "public_hub_download_and_offline_cache": {
+    "repository": "aac6fef/laya-multilingual-coreml-ane",
+    "revision": "39d6a9b3d0f67f06da74fbade6121ea134cbdb21",
+    "passed": true
+  },
+  "network_attempts_during_offline_sections": 0
+}

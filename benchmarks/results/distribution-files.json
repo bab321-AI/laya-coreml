@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "core_metadata_version": "2.4",
+  "artifacts": [
+    {
+      "filename": "laya_coreml-0.1.0-py3-none-any.whl",
+      "bytes": 48843,
+      "sha256": "2c33b224b25d2cadeb8da2945915083b5364b5c171828337a31c66061e996a1a"
+    },
+    {
+      "filename": "laya_coreml-0.1.0.tar.gz",
+      "bytes": 38333,
+      "sha256": "29ffc89f5cf6a407e6853dfabe9790e36ce3cff4c98fc59f9bfa74f55fa1f58a"
+    }
+  ]
+}

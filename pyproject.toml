@@ -1,28 +1,43 @@
 [build-system]
-requires = ["hatchling"]
+# Keep Core Metadata 2.4 compatibility with the validated Twine 6 release path.
+requires = ["hatchling==1.31.0"]
 build-backend = "hatchling.build"
 
 [project]
 name = "laya-coreml"
 version = "0.1.0"
-description = "Experimental Core ML runtime and reproducible conversion for Laya decision models"
+description = "Local Laya typed decisions on Apple Core ML and Neural Engine, with a live Snake demo"
+keywords = ["coreml", "neural-engine", "laya", "decision-model", "apple-silicon", "local-ai"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: MacOS",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 requires-python = ">=3.11,<3.14"
 license = "Apache-2.0"
 readme = "README.md"
-dependencies = ["coremltools>=9,<10", "numpy>=1.26,<2.2", "tokenizers>=0.21,<1", "huggingface-hub>=0.34,<2"]
+dependencies = ["coremltools>=9,<10", "numpy>=1.26,<2.2", "tokenizers>=0.21,<1", "huggingface-hub>=0.34,<2", "safetensors>=0.6"]
 
 [project.optional-dependencies]
 convert = ["torch==2.7.0", "safetensors>=0.6"]
 dev = ["pytest>=8", "ruff>=0.12", "build>=1", "psutil>=6"]
 compare = ["laya-mlx==0.1.0"]
 research = ["kmeans1d==0.4.0"]
+demo = ["rich>=15,<16", "Pillow>=12,<13"]
+publish = ["twine>=6,<7"]
 
 [project.scripts]
 laya-coreml = "laya_coreml.cli:main"
+laya-coreml-snake = "laya_coreml.snake.cli:main"
 
 [project.urls]
 Repository = "https://github.com/mizorewww/laya-coreml"
 Upstream = "https://github.com/NandhaKishorM/laya"
+Documentation = "https://github.com/mizorewww/laya-coreml#readme"
+Issues = "https://github.com/mizorewww/laya-coreml/issues"
+Benchmarks = "https://github.com/mizorewww/laya-coreml/blob/main/docs/ANE_BENCHMARKS.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["laya_coreml"]
