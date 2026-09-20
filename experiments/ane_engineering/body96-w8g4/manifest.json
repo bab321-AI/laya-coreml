@@ -1,0 +1,45 @@
+{
+  "format": "laya-ane-research",
+  "version": 1,
+  "created_at": "2026-09-20T00:12:50.015338+00:00",
+  "kind": "body",
+  "shape": {
+    "batch": 1,
+    "length": 96,
+    "options": 32
+  },
+  "source_directory": "../laya-mlx/models/laya-multilingual",
+  "source_files_sha256": {
+    "model.safetensors": "9d628fd971b700382ac6f65920a86f149777b2e748e0c955fb3b19695aa8f204",
+    "encoder/config.json": "83f6916d13ef0f556ac461f28308dc2bffa7ebeadee8ec9e2db5812020ea5bb4",
+    "rl_agent_config.json": "25061739243b617ad88d1219ba6f8a9c86c5881ca28df024fa2d9b3b2fcc30c6"
+  },
+  "source_tensor_dtype_counts": {
+    "F32": 1,
+    "F16": 169
+  },
+  "package_sha256": "d6183cb044e45f18324f472c20ae5c67e7e2079aa5070e1c14d4b6f8d62784e3",
+  "package_bytes": 146062439,
+  "precision": "FP16 Core ML body, original embedding lookup, FP32 CPU action head",
+  "versions": {
+    "coremltools": "9.0",
+    "torch": "2.7.0",
+    "numpy": "2.1.3"
+  },
+  "experiment_python_sha256": {
+    "artifact.py": "ebd65e3abb5ac6fbc23f786d91ced8966ae9b1f35a2f3d6b1a87939247eed004",
+    "model.py": "ac577c6635f4fd7767461d36e7e17db45c00311a862a7e5e8c2be58a975c3992",
+    "palettize.py": "17d1ed94dd45a7e4e4d9b0635e778b223e244ef57fac8eb10b413e67274273cc",
+    "probe.py": "b28b69264d2efbe6cbdd5abefdfe60ec3f4f078cf0a32c5c7b282a8d5d994876",
+    "runtime.py": "d153e6280ffeba13e03a82a671e1e120fe4d0bc9de40abca8f088c8e256e77d5",
+    "validate.py": "441693e590f3ab5f0cba76dafc21b163a34356e8b619538239fb2d2280ffd1fb"
+  },
+  "compression": {
+    "mode": "uniform",
+    "nbits": 8,
+    "granularity": "per_grouped_channel",
+    "group_size": 4,
+    "operator_selection": "conv only; threshold >2048; norms/RoPE/attention left unchanged"
+  },
+  "source_package_sha256": "53ba84d9b002997599dafc89cde611e6edac450572c63c4896e7b9f082b53651"
+}

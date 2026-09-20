@@ -1,7 +1,9 @@
 # Conversion notes
 
-The export loads **original FP32 Laya checkpoints**, strictly checks all state-dict
-keys, traces an inference-only PyTorch implementation, and saves a Core ML ML Program.
+The export loads **original Laya checkpoints** into FP32 PyTorch modules, strictly
+checks all state-dict keys, traces an inference-only implementation, and saves a Core ML ML Program.
+The published checkpoint files themselves contain predominantly FP16 tensors;
+FP32 here describes the export/reference computation, not higher-precision source weights.
 No training, pruning or weight quantization is performed. FP16 is a conversion
 precision choice; FP32 can be selected for diagnostics.
 
@@ -14,7 +16,7 @@ still runs its own encoder sequence. There is no shared-state hidden-state cache
 ## Validated conversion choices
 
 - `coremltools==9.0`, `torch==2.7.0`, `numpy==2.1.3`, Python 3.12.
-- TorchScript tracing with graph checking, evaluation mode, original FP32 weights.
+- TorchScript tracing with graph checking, evaluation mode, original weights loaded into FP32 modules.
 - ML Program, macOS 15 / iOS 18 deployment target. Actual execution was tested
   on an M3 Max running macOS 27.2; iPhone/iPad and older macOS execution were not tested.
 - Default sequence lengths are selected from 16, 32, 64, 96, 128, 192, 256, 384,

@@ -7,12 +7,20 @@ with a Python inference API, reproducible `.mlpackage` conversion, and local
 validation on an **M3 Max / macOS 27.2**. No autoregressive generation or cloud API.
 PyTorch is used for export; inference uses Core ML and the checkpoint's tokenizer.
 
+**Neural Engine experiment: 4.98 ms P50 / 5.31 ms P95, with 2.78× lower
+whole-system energy per decision than compiled MLX FP16 on this M3 Max.**
+This result is for one short multilingual decision using an explicitly rewritten
+ANE graph. A separately validated 8-bit weight-palette variant reaches 4.88 ms P50 and 3.19×
+lower system energy per decision. The requested 10× improvement has **not** been achieved.
+[Speed, energy, hardware-trace evidence and limits](docs/ANE_BENCHMARKS.md).
+
 **All three FP16 checkpoints: 189/189 selected answers match upstream.**
 Each completed 100 repeated API calls with identical rounded public results.
 The default conversion uses enumerated sequence lengths after unrestricted
 length ranges exposed a GPU correctness problem on this machine.
 
 [Benchmarks](BENCHMARKS.md) · [Conversion findings](docs/CONVERSION.md) ·
+[ANE implementation](docs/ANE_ENGINEERING.md) ·
 [MLX sibling project](https://github.com/mizorewww/laya-mlx) · [中文](README.zh-CN.md)
 
 ## Quick start
@@ -53,6 +61,45 @@ download; inference accepts a local export directory and makes no network reques
 For an inference-only environment, install this repository without `[convert]`:
 neither PyTorch, Transformers, nor MLX is required.
 
+## Run the Neural Engine experiment
+
+From the cloned repository and export environment above:
+
+```bash
+python -m experiments.ane_engineering.probe --source laya-multilingual \
+  --kind body --length 96 --output models/ane96
+python -m experiments.ane_engineering.validate \
+  --package models/ane96/model.mlpackage --length 96 \
+  --output artifacts/ane-validation.json
+```
+
+```python
+from laya_coreml.convert import resolve_source
+from experiments.ane_engineering.runtime import ANEAgent
+
+source = resolve_source("laya-multilingual")  # Pinned initial download/cache lookup.
+agent = ANEAgent(source, "models/ane96/model.mlpackage", length=96)
+# The same agent.predict(state, questions) API; subsequent inference stays local.
+```
+
+The experimental path keeps the original model parameters, changes activations
+to `B,C,1,L`, expresses dense projections as 1×1 convolutions, splits attention by
+head, and moves embedding lookup and the small action tail to CPU boundaries.
+Its complete transformer graph has 6,390 NE-preferred operations. A separate
+Instruments trace also records active Neural Engine prediction intervals.
+
+L96 is a fixed, batch-one export: **59/59 fitting validation questions agree**;
+longer inputs raise a capacity error. Separately exported L192 and L1024 graphs
+pass **60/60** and **63/63** respectively, with 100 stable repeated API calls each.
+The 4.98 ms result applies to L96; padding a short request to L1024 takes about
+88 ms. This experimental path is separate from the three-checkpoint runtime above.
+Shapes and approximate compression variants have their own gates in
+[the engineering report](docs/ANE_ENGINEERING.md).
+Simply selecting `cpu_ne` on the ordinary export does not reproduce this result.
+The ANE Snake check also matches 600/600 actions with zero deaths, but its three
+sequential questions do not show a consistent speedup over batched compiled MLX.
+The short-question latency above is not a full-game frame-time claim.
+
 ## Fidelity
 
 Comparison against unmodified upstream Laya FP32 on the same 63-question suite
@@ -81,7 +128,8 @@ Measured short-question FP16 latency (P50 / P95), end to end:
 | Laya 421M | 13.71 / 14.31 ms | 13.33 / 13.73 ms |
 | Typed Decisions 421M | 13.70 / 14.38 ms | 13.37 / 14.39 ms |
 
-The port works, but **this implementation did not outperform MLX** in this run.
+The **ordinary export** did not outperform MLX in this run. The separate ANE
+rewrite above uses a different graph and a fresh comparison against compiled MLX.
 In the paired Snake test, all **600/600 actions matched**, with zero deaths;
 Core ML decision P50 was 11.89–12.26 ms versus MLX's 11.53–11.69 ms.
 

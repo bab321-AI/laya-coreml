@@ -17,9 +17,14 @@ def main():
         "M3 Max (40 GPU cores, 128 GB unified memory), macOS 27.2, Python 3.12.13, "
         "coremltools 9.0, MLX 0.32.2, NumPy 2.1.3. Measured 2026-09-20.",
         "",
-        "**The port is numerically faithful, but this implementation does not outperform MLX "
-        "on these workloads.** Core ML CPU+GPU is the recommended/default configuration. "
-        "Automatic and CPU+Neural Engine selection preferred CPU operations in the inspected plan.",
+        "**This page measures the ordinary SDPA export**, which does not outperform MLX "
+        "on these workloads. Core ML CPU+GPU is its recommended/default configuration. "
+        "Automatic and CPU+Neural Engine selection preferred CPU operations in that plan.",
+        "",
+        "The subsequent **[ANE graph rewrite](docs/ANE_BENCHMARKS.md)** improves short-decision "
+        "speed and measured system energy against compiled MLX FP16. Its FP16/8-bit comparison, "
+        "shape limits, fidelity tests and hardware evidence are reported separately; "
+        "the requested 10× improvement was not achieved.",
         "",
         "## Short typed decisions",
         "",
@@ -56,7 +61,7 @@ def main():
         "",
         "These are measurements from one desktop run, not a guarantee of future p95 latency. "
         "Clock scaling and background system activity were not controlled. No energy or battery "
-        "measurement was performed. In particular the multilingual run showed a broader latency "
+        "measurement was performed in this ordinary-export campaign. In particular the multilingual run showed a broader latency "
         "distribution; all individual samples remain available.",
         "",
         "## Compute-unit selection",

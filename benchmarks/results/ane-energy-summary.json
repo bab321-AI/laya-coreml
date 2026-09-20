@@ -1,0 +1,273 @@
+[
+  {
+    "input": "benchmarks/results/ane-energy-fp16.json",
+    "input_sha256": "fcd8b6349ee20021cec02eb472ce2fdedc88c8373d701c1333f799fc644b9253",
+    "totals": {
+      "ane": {
+        "blocks": 6,
+        "completed_decisions": 36586,
+        "duration_seconds": 180.01951945899054,
+        "mean_ms_per_decision": 4.92044824410951,
+        "system_mean_watts": 32.21557156356448,
+        "system_joules_per_decision": 0.15851505253292514,
+        "idle_subtracted_mean_watts": 18.32872103285292,
+        "idle_subtracted_joules_per_decision": 0.0901855232228742
+      },
+      "mlx": {
+        "blocks": 6,
+        "completed_decisions": 25957,
+        "duration_seconds": 180.02297804199043,
+        "mean_ms_per_decision": 6.9354308295253855,
+        "system_mean_watts": 67.16738683443022,
+        "system_joules_per_decision": 0.4658347653901648,
+        "idle_subtracted_mean_watts": 52.96816658085875,
+        "idle_subtracted_joules_per_decision": 0.367357055488324
+      },
+      "ratios_by_candidate": {
+        "ane": {
+          "speed": 1.4095119967633238,
+          "system_power": 2.084935438811085,
+          "system_energy_per_decision": 2.938741513481228,
+          "idle_subtracted_energy_per_decision": 4.073348386308962
+        }
+      },
+      "ratios": {
+        "speed": 1.4095119967633238,
+        "system_power": 2.084935438811085,
+        "system_energy_per_decision": 2.938741513481228,
+        "idle_subtracted_energy_per_decision": 4.073348386308962
+      }
+    },
+    "telemetry_audit": {
+      "complete_balanced_cycles": 3,
+      "gross_and_adjacent_idle_energy_recomputed": true,
+      "system_power_positive_and_finite": true,
+      "system_power_below_sanity_ceiling_watts": 500,
+      "maximum_system_power_watts": 101.22681427001953,
+      "sample_count": 981,
+      "maximum_sample_gap_seconds": 0.5574742079988937,
+      "all_cpu_power_zero": true,
+      "all_ane_power_zero": true,
+      "all_blocks_check_rounded_output_stability": false
+    },
+    "latency": {
+      "ane": {
+        "samples": 36586,
+        "mean_ms": 4.919891543752702,
+        "p50_ms": 4.90308299777098,
+        "p95_ms": 5.1663122503669,
+        "p99_ms": 5.342245651627309,
+        "min_ms": 4.615167003066745,
+        "max_ms": 38.88987499522045
+      },
+      "mlx": {
+        "samples": 25957,
+        "mean_ms": 6.934759840277205,
+        "p50_ms": 6.8908750035916455,
+        "p95_ms": 7.32245799881639,
+        "p99_ms": 7.795008562097786,
+        "min_ms": 6.436416995711625,
+        "max_ms": 36.03370900236769
+      }
+    },
+    "block_ranges": {
+      "ane": {
+        "system_mean_watts": [
+          30.4094734601829,
+          34.188679865493455
+        ],
+        "idle_mean_watts": [
+          11.979283904852856,
+          15.03324893187108
+        ]
+      },
+      "mlx": {
+        "system_mean_watts": [
+          62.37777010942984,
+          73.29002459833485
+        ],
+        "idle_mean_watts": [
+          13.23527440811311,
+          15.086568477383889
+        ]
+      }
+    },
+    "uncertainty_note": "95% percentile bootstrap of whole balanced cycles (ABBA or ABCCBA); few cycles and one desktop session do not capture all meter error, background load, or future-run variation",
+    "cycle_bootstrap_95_percent": {
+      "speed": [
+        1.4051691229829153,
+        1.414663645675789
+      ],
+      "system_power": [
+        2.071005031593806,
+        2.1041139013262615
+      ],
+      "system_energy_per_decision": [
+        2.910112323937873,
+        2.9640736300274964
+      ],
+      "idle_subtracted_energy_per_decision": [
+        3.907084127503476,
+        4.165232110786833
+      ]
+    }
+  },
+  {
+    "input": "benchmarks/results/ane-energy-finalists.json",
+    "input_sha256": "d0fc94beb2e13d2ff33ef6592dc85eebd54c9cc45133c3fcbf35cfa81c02831f",
+    "totals": {
+      "ane": {
+        "blocks": 6,
+        "completed_decisions": 24453,
+        "duration_seconds": 120.01729120899836,
+        "mean_ms_per_decision": 4.90808044857475,
+        "system_mean_watts": 27.38995120119168,
+        "system_joules_per_decision": 0.13443208397798537,
+        "idle_subtracted_mean_watts": 14.55815812172826,
+        "idle_subtracted_joules_per_decision": 0.07145261124451419
+      },
+      "ane_fp16": {
+        "blocks": 6,
+        "completed_decisions": 23961,
+        "duration_seconds": 120.01638045700383,
+        "mean_ms_per_decision": 5.008821854555479,
+        "system_mean_watts": 30.74503471013749,
+        "system_joules_per_decision": 0.15399640177520343,
+        "idle_subtracted_mean_watts": 17.721157971000157,
+        "idle_subtracted_joules_per_decision": 0.08876212333317561
+      },
+      "mlx": {
+        "blocks": 6,
+        "completed_decisions": 17184,
+        "duration_seconds": 120.02023733300302,
+        "mean_ms_per_decision": 6.984417908112373,
+        "system_mean_watts": 61.386801293620394,
+        "system_joules_per_decision": 0.42875107427689807,
+        "idle_subtracted_mean_watts": 48.586655993753254,
+        "idle_subtracted_joules_per_decision": 0.3393495102180656
+      },
+      "ratios_by_candidate": {
+        "ane": {
+          "speed": 1.4230447078634516,
+          "system_power": 2.2412161614566726,
+          "system_energy_per_decision": 3.189350797738957,
+          "idle_subtracted_energy_per_decision": 4.749294732655685
+        },
+        "ane_fp16": {
+          "speed": 1.3944233017111813,
+          "system_power": 1.996641144574134,
+          "system_energy_per_decision": 2.784162937149456,
+          "idle_subtracted_energy_per_decision": 3.823134209445289
+        }
+      }
+    },
+    "telemetry_audit": {
+      "complete_balanced_cycles": 3,
+      "gross_and_adjacent_idle_energy_recomputed": true,
+      "system_power_positive_and_finite": true,
+      "system_power_below_sanity_ceiling_watts": 500,
+      "maximum_system_power_watts": 74.46618,
+      "sample_count": 1101,
+      "maximum_sample_gap_seconds": 0.5100195830018492,
+      "all_cpu_power_zero": null,
+      "all_ane_power_zero": null,
+      "all_blocks_check_rounded_output_stability": true
+    },
+    "latency": {
+      "ane": {
+        "samples": 24453,
+        "mean_ms": 4.9064951194832025,
+        "p50_ms": 4.878500003542285,
+        "p95_ms": 5.227083397039678,
+        "p99_ms": 5.448340998555068,
+        "min_ms": 4.54245899891248,
+        "max_ms": 17.360583995468915
+      },
+      "ane_fp16": {
+        "samples": 23961,
+        "mean_ms": 5.007170642363764,
+        "p50_ms": 4.975958996510599,
+        "p95_ms": 5.30741699913051,
+        "p99_ms": 5.5360497994115585,
+        "min_ms": 4.637333004211541,
+        "max_ms": 49.454833002528176
+      },
+      "mlx": {
+        "samples": 17184,
+        "mean_ms": 6.982482647740916,
+        "p50_ms": 6.937333502719412,
+        "p95_ms": 7.393273249545018,
+        "p99_ms": 8.008681108112796,
+        "min_ms": 6.467541999882087,
+        "max_ms": 32.82887500245124
+      }
+    },
+    "block_ranges": {
+      "ane": {
+        "system_mean_watts": [
+          26.677673120050144,
+          27.951166782502668
+        ],
+        "idle_mean_watts": [
+          12.021975662411272,
+          14.5602352382618
+        ]
+      },
+      "ane_fp16": {
+        "system_mean_watts": [
+          29.275326654374023,
+          35.14323993666957
+        ],
+        "idle_mean_watts": [
+          11.92477531000549,
+          14.94316759133466
+        ]
+      },
+      "mlx": {
+        "system_mean_watts": [
+          60.319889738410886,
+          62.37594986463367
+        ],
+        "idle_mean_watts": [
+          12.362298311736378,
+          13.508122719275963
+        ]
+      }
+    },
+    "uncertainty_note": "95% percentile bootstrap of whole balanced cycles (ABBA or ABCCBA); few cycles and one desktop session do not capture all meter error, background load, or future-run variation",
+    "cycle_bootstrap_95_percent": {
+      "ane.speed": [
+        1.4146493579992663,
+        1.4301627415689606
+      ],
+      "ane.system_power": [
+        2.1777279326233447,
+        2.304290076626427
+      ],
+      "ane.system_energy_per_decision": [
+        3.1017651535289876,
+        3.259762477543656
+      ],
+      "ane.idle_subtracted_energy_per_decision": [
+        4.46270537826813,
+        4.921981038266543
+      ],
+      "ane_fp16.speed": [
+        1.387012756875126,
+        1.4003307824048103
+      ],
+      "ane_fp16.system_power": [
+        1.9061324421198167,
+        2.0669693879458495
+      ],
+      "ane_fp16.system_energy_per_decision": [
+        2.669215934040835,
+        2.8669129091512646
+      ],
+      "ane_fp16.idle_subtracted_energy_per_decision": [
+        3.6672125551318357,
+        4.038539495261509
+      ]
+    }
+  }
+]

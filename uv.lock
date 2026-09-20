@@ -231,6 +231,17 @@ wheels = [
 ]
 
 [[package]]
+name = "kmeans1d"
+version = "0.4.0"
+source = { registry = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/" }
+sdist = { url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/18/5b/0ba1f71363e62fb2bd5370ec9b26360c482bd9ad06082b5dcfb03e148928/kmeans1d-0.4.0.tar.gz", hash = "sha256:80f66178d4e66f75e076c4877b52f9b4d0eb2d3b4294c056016a1384f75fe5de", size = 7217, upload-time = "2024-07-03T17:45:19.936Z" }
+wheels = [
+    { url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/19/19/57056e4566611f5da2166c52a9f88185c177a224d0ecab1dd632cffa1c88/kmeans1d-0.4.0-cp32-abi3-macosx_11_0_universal2.whl", hash = "sha256:9a052bca5bbacbd70a7f4846896439ebed29e96a2b04115c1fec480555cad70d", size = 28571, upload-time = "2024-07-03T17:45:15.561Z" },
+    { url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/ba/0c/63c31443d391f5452aa21e7d5e10106de06cd6ea42bf0a0689b01900139f/kmeans1d-0.4.0-cp32-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ad8017fdb82746c718215695b4290e9bd6ded0305740e2fe2b1ede697a14e947", size = 122693, upload-time = "2024-07-03T17:45:17.428Z" },
+    { url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/packages/d5/5a/db6e1f27d31db470e53a6b70009216891050a7396a70584c9600a5b98bd4/kmeans1d-0.4.0-cp32-abi3-win_amd64.whl", hash = "sha256:5943d68f6514309023ace23d8ad3f43703871e87a021e8024cdf4db79ed2f2e1", size = 18133, upload-time = "2024-07-03T17:45:18.989Z" },
+]
+
+[[package]]
 name = "laya-coreml"
 version = "0.1.0"
 source = { editable = "." }
@@ -255,12 +266,16 @@ dev = [
     { name = "pytest" },
     { name = "ruff" },
 ]
+research = [
+    { name = "kmeans1d" },
+]
 
 [package.metadata]
 requires-dist = [
     { name = "build", marker = "extra == 'dev'", specifier = ">=1" },
     { name = "coremltools", specifier = ">=9,<10" },
     { name = "huggingface-hub", specifier = ">=0.34,<2" },
+    { name = "kmeans1d", marker = "extra == 'research'", specifier = "==0.4.0" },
     { name = "laya-mlx", marker = "extra == 'compare'", specifier = "==0.1.0" },
     { name = "numpy", specifier = ">=1.26,<2.2" },
     { name = "psutil", marker = "extra == 'dev'", specifier = ">=6" },
@@ -270,7 +285,7 @@ requires-dist = [
     { name = "tokenizers", specifier = ">=0.21,<1" },
     { name = "torch", marker = "extra == 'convert'", specifier = "==2.7.0" },
 ]
-provides-extras = ["convert", "dev", "compare"]
+provides-extras = ["convert", "dev", "compare", "research"]
 
 [[package]]
 name = "laya-mlx"

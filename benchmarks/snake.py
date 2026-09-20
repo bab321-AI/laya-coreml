@@ -27,14 +27,30 @@ def main():
     p.add_argument("mlx_source", type=Path)
     p.add_argument("--steps", type=int, default=300)
     p.add_argument("--seeds", type=int, nargs="+", default=[101, 102])
+    p.add_argument("--ane", action="store_true", help="Use experimental ANE B1/L96 package")
+    p.add_argument(
+        "--mlx-compiled", action="store_true", help="Compile and bucket the MLX baseline"
+    )
     p.add_argument("--output", type=Path, default=Path("benchmarks/results/snake.json"))
     a = p.parse_args()
     from laya_mlx import Agent as MLXAgent
 
     from laya_coreml import Agent as CoreMLAgent
 
-    coreml = CoreMLAgent(a.coreml_dir, compute_units="cpu_gpu")
-    mlx = MLXAgent(a.mlx_source, dtype="float16", batch_size=3)
+    if a.ane:
+        from experiments.ane_engineering.runtime import ANEAgent
+
+        coreml = ANEAgent(a.mlx_source, a.coreml_dir, length=96)
+    else:
+        coreml = CoreMLAgent(a.coreml_dir, compute_units="cpu_gpu")
+    mlx = MLXAgent(
+        a.mlx_source,
+        dtype="float16",
+        batch_size=3,
+        compile=a.mlx_compiled,
+        cache_prompts=a.mlx_compiled,
+        pad_to_multiple=32 if a.mlx_compiled else None,
+    )
     policies = {"coreml": Policy(coreml), "mlx": Policy(mlx)}
     warmup = SnakeGame(seed=a.seeds[0])
     for policy in policies.values():
@@ -43,6 +59,12 @@ def main():
     report = {
         "environment": environment(),
         "export": coreml.manifest,
+        "settings": {
+            "ane": a.ane,
+            "mlx_compiled": a.mlx_compiled,
+            "mlx_batch_size": 3,
+            "ane_batch_size": 1 if a.ane else None,
+        },
         "method": "Both models infer every state; order alternates each step. Core ML action advances the game. Timings exclude the other backend, game step, and rendering. Planner features and cycle safety are enabled for both.",
         "runs": [],
     }

@@ -1,4 +1,4 @@
-"""Reproducible FP16/FP32 Core ML export from original FP32 Laya weights."""
+"""Reproducible FP16/FP32 Core ML export from the original Laya checkpoints."""
 
 import hashlib
 import json
